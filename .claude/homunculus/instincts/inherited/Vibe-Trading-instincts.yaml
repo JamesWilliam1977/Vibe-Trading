@@ -1,0 +1,771 @@
+# Instincts generated from https://github.com/JamesWilliam1977/Vibe-Trading
+# Generated: 2026-08-01T07:30:18.512Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: Vibe-Trading-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, docs, feat, test
+
+## Evidence
+
+- 100 commits analyzed
+- Detected conventional commit pattern
+- Examples: docs: add News section to README, feat: multi-market backtest engines with per-market rules
+
+---
+id: Vibe-Trading-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Commit Length
+
+## Action
+
+Write moderate-length commit messages (~57 characters)
+
+## Evidence
+
+- Average commit message length: 57 chars
+- Based on 100 commits
+
+---
+id: Vibe-Trading-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: Vibe-Trading-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: Vibe-Trading-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: Vibe-Trading-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: Vibe-Trading-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: Vibe-Trading-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~23x per month
+- Files: frontend/src/components/chat/*, frontend/src/lib/*, frontend/src/components/charts/*
+
+---
+id: Vibe-Trading-workflow-test-driven-development
+trigger: "when adding new functionality"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Test Driven Development
+
+## Action
+
+Follow the test-driven-development workflow:
+1. Write failing test
+2. Implement code to pass test
+3. Refactor if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: **/*.test.*, **/*.spec.*, src/**/*
+
+---
+id: Vibe-Trading-workflow-add-new-backtest-engine
+trigger: "when doing add new backtest engine"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add New Backtest Engine
+
+## Action
+
+Follow the add-new-backtest-engine workflow:
+1. Create or update engine file in agent/backtest/engines/ (e.g., china_a.py, crypto.py, forex.py, composite.py)
+2. Update agent/backtest/engines/__init__.py to register the new engine
+3. Update agent/backtest/runner.py to route to the correct engine based on market detection
+4. Update or create models and metrics if new data structures or calculations are needed (agent/backtest/models.py, agent/backtest/metrics.py)
+5. Add or update tests for the new engine in agent/tests/
+6. Update README.md and relevant SKILL.md files to document the new engine
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: agent/backtest/engines/*.py, agent/backtest/engines/__init__.py, agent/backtest/runner.py
+
+---
+id: Vibe-Trading-workflow-add-or-update-skill
+trigger: "when doing add or update skill"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Skill
+
+## Action
+
+Follow the add-or-update-skill workflow:
+1. Create or update SKILL.md in agent/src/skills/<skill-name>/
+2. Add example code or supporting files in the same skill directory if needed
+3. Update agent/src/agent/skills.py to register or categorize the skill
+4. Update README.md and all translations to reflect new skill count and capability
+5. Add or update tests for the skill in agent/tests/
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: agent/src/skills/*/SKILL.md, agent/src/skills/*/*.py, agent/src/agent/skills.py
+
+---
+id: Vibe-Trading-workflow-add-or-update-data-loader
+trigger: "when doing add or update data loader"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Data Loader
+
+## Action
+
+Follow the add-or-update-data-loader workflow:
+1. Create or update loader file in agent/backtest/loaders/ (e.g., akshare_loader.py, ccxt_loader.py)
+2. Update agent/backtest/loaders/registry.py to register the loader and define fallback chains
+3. Update agent/backtest/runner.py to use the new loader or fallback logic
+4. Update or add SKILL.md for the data source
+5. Update README.md to document new data source
+6. Add or update tests for the loader in agent/tests/
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: agent/backtest/loaders/*.py, agent/backtest/loaders/registry.py, agent/backtest/runner.py
+
+---
+id: Vibe-Trading-workflow-add-api-endpoint-or-cli-command
+trigger: "when doing add api endpoint or cli command"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Api Endpoint Or Cli Command
+
+## Action
+
+Follow the add-api-endpoint-or-cli-command workflow:
+1. Add or update handler in agent/api_server.py or agent/cli.py
+2. Update frontend/src/lib/api.ts and/or relevant frontend components if exposed to UI
+3. Update README.md and all translations to document the new command/endpoint
+4. Add or update tests for the new endpoint/command in agent/tests/
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: agent/api_server.py, agent/cli.py, frontend/src/lib/api.ts
+
+---
+id: Vibe-Trading-workflow-add-or-update-frontend-feature
+trigger: "when doing add or update frontend feature"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Frontend Feature
+
+## Action
+
+Follow the add-or-update-frontend-feature workflow:
+1. Add or update React component(s) in frontend/src/components/ or frontend/src/pages/
+2. Update frontend/src/lib/api.ts for new API calls
+3. Update i18n files if new text is introduced
+4. Update README.md and all translations to reflect new UI features
+5. Update vite.config.ts if new proxy routes are needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: frontend/src/components/**/*.tsx, frontend/src/pages/**/*.tsx, frontend/src/lib/api.ts
+
+---
+id: Vibe-Trading-workflow-add-or-update-tests-and-ci
+trigger: "when doing add or update tests and ci"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Tests And Ci
+
+## Action
+
+Follow the add-or-update-tests-and-ci workflow:
+1. Add or update test files in agent/tests/
+2. Update .github/workflows/test.yml for CI integration if needed
+3. Update pyproject.toml with new test dependencies or config
+4. Update .gitignore to exclude test artifacts if necessary
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: agent/tests/*.py, .github/workflows/test.yml, pyproject.toml
+
+---
+id: Vibe-Trading-workflow-update-readme-and-translations
+trigger: "when doing update readme and translations"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Update Readme And Translations
+
+## Action
+
+Follow the update-readme-and-translations workflow:
+1. Update README.md with new news entries, skill/tool counts, or documentation
+2. Update all translation files (README_zh.md, README_ja.md, README_ko.md, README_ar.md) to match changes
+3. Optionally update contributor or roadmap sections
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: README.md, README_zh.md, README_ja.md
+
+---
+id: Vibe-Trading-workflow-add-or-update-github-templates-and-policies
+trigger: "when doing add or update github templates and policies"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Github Templates And Policies
+
+## Action
+
+Follow the add-or-update-github-templates-and-policies workflow:
+1. Add or update files in .github/ (ISSUE_TEMPLATE, pull_request_template.md, workflows)
+2. Add or update CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md
+3. Update README.md to reference new or updated policies
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: .github/ISSUE_TEMPLATE/*.yml, .github/pull_request_template.md, .github/workflows/*.yml
+
+---
+id: vibe-trading-coding-file-naming
+trigger: "When creating or renaming a Python file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Coding File Naming
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in namingConventions.files: snake_case
+
+---
+id: vibe-trading-coding-function-naming
+trigger: "When defining a Python function"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Coding Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: vibe-trading-coding-class-naming
+trigger: "When defining a Python class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Coding Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: vibe-trading-coding-constant-naming
+trigger: "When defining a constant in Python"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Coding Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constants
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: vibe-trading-coding-import-style
+trigger: "When importing modules in Python"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Coding Import Style
+
+## Action
+
+Use alias import style
+
+## Evidence
+
+- Pattern in importStyle: alias
+
+---
+id: vibe-trading-coding-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Coding Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: vibe-trading-testing-file-pattern
+trigger: "When creating a test file for frontend TypeScript code"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Testing File Pattern
+
+## Action
+
+Name the file with the pattern *.test.ts
+
+## Evidence
+
+- Pattern in testing.filePattern: *.test.ts
+
+---
+id: vibe-trading-testing-unit-tests
+trigger: "When writing tests for new features or bug fixes"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Testing Unit Tests
+
+## Action
+
+Write unit tests and place them in agent/tests/ for backend or appropriate frontend test directories
+
+## Evidence
+
+- Pattern in testing.testTypes: unit
+- Seen in commit: test: add 236 unit tests + CI pytest integration
+
+---
+id: vibe-trading-testing-ci-integration
+trigger: "When adding or updating tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Testing Ci Integration
+
+## Action
+
+Ensure .github/workflows/test.yml is updated for CI integration if needed
+
+## Evidence
+
+- Pattern in workflows: add-or-update-tests-and-ci
+- Example files: .github/workflows/test.yml
+
+---
+id: vibe-trading-git-commit-format-conventional
+trigger: "When writing a commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Git Commit Format Conventional
+
+## Action
+
+Use conventional commit prefixes (fix, feat, docs, test, chore) followed by a colon and a short description
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples: 'docs: add News section to README', 'feat: multi-market backtest engines with per-market rules'
+
+---
+id: vibe-trading-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Git Commit Length
+
+## Action
+
+Keep the commit message concise (average ~57 characters)
+
+## Evidence
+
+- Pattern in commits.averageLength: 57
+
+---
+id: vibe-trading-workflow-add-backtest-engine
+trigger: "When someone wants to support backtesting for a new market or asset class"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Backtest Engine
+
+## Action
+
+Create or update engine in agent/backtest/engines/, register in __init__.py, update runner.py, models.py, metrics.py, add tests, and update documentation
+
+## Evidence
+
+- Workflow: add-new-backtest-engine
+- Example files: agent/backtest/engines/*.py, agent/tests/test_*engine.py, README.md
+
+---
+id: vibe-trading-workflow-add-or-update-skill
+trigger: "When someone wants to introduce a new analytical, trading, or export capability to the agent"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Skill
+
+## Action
+
+Create or update SKILL.md and code in agent/src/skills/, register in skills.py, update documentation and translations, and add tests
+
+## Evidence
+
+- Workflow: add-or-update-skill
+- Example files: agent/src/skills/*/SKILL.md, agent/tests/test_skills.py, README.md
+
+---
+id: vibe-trading-workflow-add-or-update-data-loader
+trigger: "When someone wants to support a new data provider or improve data source reliability"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Data Loader
+
+## Action
+
+Create or update loader in agent/backtest/loaders/, register in registry.py, update runner.py, update SKILL.md and README.md, add tests
+
+## Evidence
+
+- Workflow: add-or-update-data-loader
+- Example files: agent/backtest/loaders/*.py, agent/tests/test_registry.py, README.md
+
+---
+id: vibe-trading-workflow-add-api-endpoint-or-cli-command
+trigger: "When someone wants to make a new feature accessible via API or CLI"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Api Endpoint Or Cli Command
+
+## Action
+
+Add or update handler in agent/api_server.py or agent/cli.py, update frontend/api, documentation, and tests
+
+## Evidence
+
+- Workflow: add-api-endpoint-or-cli-command
+- Example files: agent/api_server.py, frontend/src/lib/api.ts, README.md
+
+---
+id: vibe-trading-workflow-add-or-update-frontend-feature
+trigger: "When someone wants to expose a new backend feature or improve user experience in the web UI"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Frontend Feature
+
+## Action
+
+Add or update React components, update frontend/src/lib/api.ts, i18n files, documentation, and vite.config.ts if needed
+
+## Evidence
+
+- Workflow: add-or-update-frontend-feature
+- Example files: frontend/src/components/**/*.tsx, README.md
+
+---
+id: vibe-trading-workflow-add-or-update-tests-and-ci
+trigger: "When someone adds a new feature, fixes a bug, or wants to improve test coverage"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Tests And Ci
+
+## Action
+
+Add or update tests in agent/tests/, update CI workflow, dependencies, and .gitignore as needed
+
+## Evidence
+
+- Workflow: add-or-update-tests-and-ci
+- Example files: agent/tests/*.py, .github/workflows/test.yml
+
+---
+id: vibe-trading-workflow-update-readme-and-translations
+trigger: "When someone ships a new feature, skill, or wants to update documentation/news"
+confidence: 0.99
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Update Readme And Translations
+
+## Action
+
+Update README.md and all translation files to reflect changes
+
+## Evidence
+
+- Workflow: update-readme-and-translations
+- Example files: README.md, README_zh.md, README_ja.md, README_ko.md, README_ar.md
+
+---
+id: vibe-trading-workflow-add-or-update-github-templates-and-policies
+trigger: "When someone wants to improve contributor experience or project governance"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/Vibe-Trading
+---
+
+# Vibe Trading Workflow Add Or Update Github Templates And Policies
+
+## Action
+
+Add or update GitHub templates, contributing guides, code of conduct, security policy, and reference in README.md
+
+## Evidence
+
+- Workflow: add-or-update-github-templates-and-policies
+- Example files: .github/ISSUE_TEMPLATE/*.yml, CONTRIBUTING.md, README.md
+
